@@ -1,0 +1,16 @@
+{
+  "name": "bc17-w4d2-project-teamac",
+  "version": "1.0.0",
+  "description": "1. NPM init - y",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
