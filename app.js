@@ -3,14 +3,37 @@ import helmet from "helmet";
 
 const app = express();
 
-const activityData = [
-	"data" = {
-		id: "54321234", // UUID
-		activity_submitted: "1719486190058", // simple Epoc timestamp (Date.now() in JS)
-		activity_type: "run", // choose some standard types
-		activity_duration: "30", // choose standard unit type (minutes probably)
-	},
-];
+const activityData = {
+	data: [
+		{
+			id: "54321234",
+			activity_submitted: "1719486190058",
+			activity_type: "run",
+			activity_duration: "30",
+		},
+
+		{
+			id: "54321235",
+			activity_submitted: "1719486190058",
+			activity_type: "run",
+			activity_duration: "30",
+		},
+		{
+			id: "54321236",
+			activity_submitted: "1719486190058",
+			activity_type: "run",
+			activity_duration: "30",
+		},
+	],
+};
+
+//     {
+// 		id: "54321234", // UUID
+// 		activity_submitted: "1719486190058", // simple Epoc timestamp (Date.now() in JS)
+// 		activity_type: "run", // choose some standard types
+// 		activity_duration: "30", // choose standard unit type (minutes probably)
+// 	},
+// };
 
 app.use(helmet());
 
@@ -23,8 +46,7 @@ app.get("/", (req, res) => {
 // Then the the request should succeed, responding with the correct status code and an array of User Activity objects in the response body (response.data).
 
 app.get("/activities", (req, res) => {
-	
-    res.status(200).send(activityData);
+	res.status(200).send(activityData);
 });
 
 app.listen(3000, () => {
