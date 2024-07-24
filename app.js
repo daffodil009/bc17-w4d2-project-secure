@@ -1,54 +1,40 @@
 import express from "express";
 import helmet from "helmet";
 
+const port = 3000;
 const app = express();
 
-const activityData = {
-	data: [
+app.use(helmet());
+app.use(express.json());
+
+const activityData = [
 		{
 			id: "54321234",
 			activity_submitted: "1719486190058",
 			activity_type: "run",
 			activity_duration: "30",
-		},
-
-		{
-			id: "54321235",
-			activity_submitted: "1719486190058",
-			activity_type: "run",
-			activity_duration: "30",
-		},
-		{
-			id: "54321236",
-			activity_submitted: "1719486190058",
-			activity_type: "run",
-			activity_duration: "30",
-		},
-	],
-};
-
-//     {
-// 		id: "54321234", // UUID
-// 		activity_submitted: "1719486190058", // simple Epoc timestamp (Date.now() in JS)
-// 		activity_type: "run", // choose some standard types
-// 		activity_duration: "30", // choose standard unit type (minutes probably)
-// 	},
-// };
-
-app.use(helmet());
+		}
+	];
 
 app.get("/", (req, res) => {
-	res.send("status code 200. Hello World!");
-	console.log(req);
+	res.send("Hello World")
 });
-
-// I make a GET request to “http://localhost:3000/activities”
-// Then the the request should succeed, responding with the correct status code and an array of User Activity objects in the response body (response.data).
 
 app.get("/activities", (req, res) => {
-	res.status(200).send(activityData);
+	res.status(200).json({
+		"success": true,
+		"payload": JSON.stringify(activityData)
+	})
 });
 
-app.listen(3000, () => {
+app.post("/activities", (req, res) => {
+	const newActivity = req.body.newActivity;
+
+})
+
+
+
+
+app.listen(port, () => {
 	console.log("Server is running on http://localhost:3000");
 });
