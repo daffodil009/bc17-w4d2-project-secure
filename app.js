@@ -4,7 +4,7 @@ import helmet from "helmet";
 const app = express();
 
 const activityData = [
-	{
+	"data" = {
 		id: "54321234", // UUID
 		activity_submitted: "1719486190058", // simple Epoc timestamp (Date.now() in JS)
 		activity_type: "run", // choose some standard types
