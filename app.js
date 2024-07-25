@@ -1,39 +1,61 @@
 import express from "express";
 import helmet from "helmet";
+import { v4 as uuidv4 } from "uuid";
 
+import { activities } from "./activities.js";
+
+// save port number in a const
 const port = 3000;
+
+// create an application instance using express
 const app = express();
 
+// add some middleware to make use safer
 app.use(helmet());
+
+// add some middleware to let user read JSON from request body
 app.use(express.json());
 
-const activityData = [
-		{
-			id: "54321234",
-			activity_submitted: "1719486190058",
-			activity_type: "run",
-			activity_duration: "30",
-		}
-	];
-
+// handle a basic "/" request to show app is available
 app.get("/", (req, res) => {
-	res.send("Hello World")
+	res.send("Hello World! ☺ ");
 });
 
+// GET all the activities
 app.get("/activities", (req, res) => {
 	res.status(200).json({
-		"success": true,
-		"payload": JSON.stringify(activityData)
-	})
+		error: null,
+		data: JSON.stringify(activities),
+	});
 });
 
+// post a new activity
 app.post("/activities", (req, res) => {
 	const newActivity = req.body.newActivity;
+	console.log(newActivity);
 
-})
+	if (!newActivity) {
+		res.status(400).json({
+			error: true,
+			data: null,
+		});
+	}
 
+	const activity = {
+		...newActivity,
+		id: uuidv4(),
+		activity_submitted: Date.now(),
+	};
 
+	activities.push(activity);
+	console.log(activity);
+	console.log(activities);
 
+	res.status(201).json({
+		error: false,
+		data: activity,
+	});
+});
 
 app.listen(port, () => {
 	console.log("Server is running on http://localhost:3000");

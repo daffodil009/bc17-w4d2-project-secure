@@ -6,4 +6,12 @@
 
 4. npm install express
 
-5. import express and get request and listen on port 3000 
+5. import express and get request and listen on port 3000 Getting started
+
+## Install
+
+npm install
+
+## Run
+
+npm run dev
