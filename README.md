@@ -1,6 +1,6 @@
-### TeamAC - Activity tracker app
+# TeamAC - Activity tracker app
 
-# Instructions for installing and configuring Express
+### Instructions for installing and configuring Express
 1. NPM init - y
 
 2. update type:module in package.json
