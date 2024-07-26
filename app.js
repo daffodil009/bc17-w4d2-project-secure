@@ -18,7 +18,7 @@ app.use(express.json());
 
 // handle a basic "/" request to show app is available
 app.get("/", (req, res) => {
-	res.status(200).send("Hello World! 🚀 "); 
+	res.status(200).send("Hello World! 🚀✨ "); 
 });
 
 // GET all the activities
