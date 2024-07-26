@@ -19,13 +19,15 @@ app.use(express.json());
 // handle a basic "/" request to show app is available
 app.get("/", (req, res) => {
 	res.status(200).send("Hello World! 🚀✨ "); 
+	console.log(req);
 });
 
 // GET all the activities
 app.get("/activities", (req, res) => {
 	res.status(200).json({
 		error: null,
-		data: JSON.stringify(activities),
+		// data: JSON.stringify(activities),
+		data: activities,
 	});
 });
 
@@ -70,6 +72,10 @@ app.post("/activities", (req, res) => {
 		data: activity,
 	});
 });
+
+// app.delete("/activities"), (req, res) => {
+// 	console.log("trying to delete");
+// } 
 
 app.listen(port, () => {
 	console.log(
