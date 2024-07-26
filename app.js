@@ -29,9 +29,23 @@ app.get("/activities", (req, res) => {
 	});
 });
 
-// post a new activity
+// post a new activity, 
 app.post("/activities", (req, res) => {
-	const newActivity = req.body.newActivity;
+	
+	const newActivity = req.body.newActivity; // POSTMAN request has to have the same request
+
+	//  the newActivity to be posted in the postman.
+	
+	// {
+    // 	"newActivity" : {
+    //     "activity_type" : "table tennis",
+    //     "activity_duration " : "20"
+    // 	 }
+
+	// }
+		
+
+
 	console.log(newActivity);
 
 	if (!newActivity) {
