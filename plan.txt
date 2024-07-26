@@ -1,0 +1,13 @@
+1. send a POST request with a JSON request body - new activity
+	API should save the new activity to "activities.json"
+		+ unique ID
+		+ time stamps
+		
+	activity object as response body
+	
+2. response object which contains
+	key called data or error
+	OR
+	status code (success / fail) and reason
+	
+3. if invalid (activities) add error message
