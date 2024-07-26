@@ -18,7 +18,7 @@ app.use(express.json());
 
 // handle a basic "/" request to show app is available
 app.get("/", (req, res) => {
-	res.send("Hello World! ☺ ");
+	res.status(200).send("Hello World! 🚀 "); 
 });
 
 // GET all the activities
@@ -72,5 +72,8 @@ app.post("/activities", (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log("Server is running on http://localhost:3000");
+	console.log(
+		`Server is running on ${port}. This is the address of the port  http://localhost:3000`
+	); 
+	
 });
