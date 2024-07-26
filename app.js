@@ -44,12 +44,12 @@ app.post("/activities", (req, res) => {
     //     "activity_duration " : "20"
     // 	 }
 
-	// }
-		
+	// }	
 
 
 	console.log(newActivity);
 
+	// If there is no new activity posted
 	if (!newActivity) {
 		res.status(400).json({
 			error: true,
@@ -57,16 +57,19 @@ app.post("/activities", (req, res) => {
 		});
 	}
 
+	// Adding ID and Date to new Activity object
 	const activity = {
 		...newActivity,
 		id: uuidv4(),
 		activity_submitted: Date.now(),
 	};
 
+	// Add new activity to existing activities
 	activities.push(activity);
 	console.log(activity);
 	console.log(activities);
 
+	// Error handling
 	res.status(201).json({
 		error: false,
 		data: activity,
